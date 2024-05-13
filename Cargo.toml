@@ -13,7 +13,6 @@ repository = "https://github.com/hi-liyan/aliyun-sms-sdk"
 reqwest = { version = "0.12.4", features = ["json"] }
 serde = { version = "1.0.200", features = ["derive"] }
 serde_json = "1.0.110"
-struct-builder = { version = "0.1.1", git = "https://github.com/hi-liyan/struct-builder.git" }
 base64 = "0.22.1"
 chrono = "0.4.38"
 uuid = { version = "1.8.0", features = ["v4"] }

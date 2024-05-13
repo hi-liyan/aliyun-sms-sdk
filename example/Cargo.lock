@@ -32,7 +32,6 @@ dependencies = [
  "sha1",
  "sha2",
  "sha256",
- "struct-builder",
  "uuid",
 ]
 
@@ -1022,16 +1021,6 @@ checksum = "ce305eb0b4296696835b71df73eb912e0f1ffd2556a501fcede6e0c50349191c"
 dependencies = [
  "libc",
  "windows-sys 0.52.0",
-]
-
-[[package]]
-name = "struct-builder"
-version = "0.1.1"
-source = "git+https://github.com/hi-liyan/struct-builder.git#ad84bff684d9b03f2cf063c27ad0728737e1c348"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
 ]
 
 [[package]]
