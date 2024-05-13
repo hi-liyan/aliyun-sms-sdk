@@ -1,0 +1,25 @@
+[package]
+name = "aliyun-sms-sdk"
+version = "0.1.0"
+edition = "2021"
+authors = ["Liyan 721748889@qq.com"]
+description = "Aliyun sms sdk for rust."
+license = "MIT"
+documentation = "https://docs.rs/aliyun-sms-sdk"
+homepage = "https://docs.rs/aliyun-sms-sdk"
+repository = "https://github.com/hi-liyan/aliyun-sms-sdk"
+
+[dependencies]
+reqwest = { version = "0.12.4", features = ["json"] }
+serde = { version = "1.0.200", features = ["derive"] }
+serde_json = "1.0.110"
+struct-builder = { version = "0.1.1", git = "https://github.com/hi-liyan/struct-builder.git" }
+base64 = "0.22.1"
+chrono = "0.4.38"
+uuid = { version = "1.8.0", features = ["v4"] }
+sha1 = "0.10.6"
+hmac = "0.12.1"
+percent-encoding = "2.3.1"
+hex = "0.4.3"
+sha256 = "1.5.0"
+sha2 = "0.10.8"
