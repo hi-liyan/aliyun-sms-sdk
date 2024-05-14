@@ -3,6 +3,7 @@ use std::time::Duration;
 use reqwest::{Client, ClientBuilder, Method};
 use serde::Deserialize;
 use uuid::Uuid;
+use crate::error::SdkError;
 
 use crate::utils::{generate_canonical_query_string, get_utc, hmac_sha256_hex, sha256};
 
@@ -51,7 +52,7 @@ impl SmsClient {
         sign_name: &String,
         template_code: &String,
         template_param: &String,
-    ) -> Result<SmsResponse, Box<dyn std::error::Error>> {
+    ) -> Result<SmsResponse, SdkError> {
         // 初始化基本请求参数
         let host = self.endpoint.clone();
         // let region = self.region.clone();
