@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use std::time::Duration;
 
 use reqwest::{Client, ClientBuilder, Method};
@@ -41,7 +42,7 @@ impl SmsClient {
     /// - template_param 短信模板变量对应的实际值
     /// 
     /// ## 返回
-    /// - [SmsResponse]
+    /// - [HashMap]
     ///
     /// ## 参考文档
     /// - [SendSms- 发送短信](https://next.api.aliyun.com/document/Dysmsapi/2017-05-25/SendSms)
@@ -52,7 +53,7 @@ impl SmsClient {
         sign_name: &String,
         template_code: &String,
         template_param: &String,
-    ) -> Result<SmsResponse, SdkError> {
+    ) -> Result<HashMap<String, String>, SdkError> {
         // 初始化基本请求参数
         let host = self.endpoint.clone();
         // let region = self.region.clone();
@@ -137,7 +138,7 @@ impl SmsClient {
             .unwrap();
 
         let response = self.client.execute(request).await?;
-        let response = response.json::<SmsResponse>().await?;
+        let response = response.json::<HashMap<String, String>>().await?;
 
         Ok(response)
     }
@@ -205,16 +206,4 @@ impl SmsClientBuilder {
                 .unwrap(),
         }
     }
-}
-
-#[derive(Deserialize, Debug, Clone)]
-pub struct SmsResponse {
-    #[serde(rename = "Code")]
-    pub code: String,
-    #[serde(rename = "Message")]
-    pub message: String,
-    #[serde(rename = "RequestId")]
-    pub request_id: String,
-    #[serde(rename = "BizId")]
-    pub biz_id: String,
 }
